@@ -1,0 +1,57 @@
+package com.osa.test;
+
+import org.apache.log4j.Logger;
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
+
+import com.joshim.base.Base;
+import com.joshim.base.Browser;
+import com.osa.page.HomePage;
+import com.osa.page.InterviewQuestions;
+import com.osa.page.StudentPage;
+import com.osa.utilities.Apps;
+import com.osa.utilities.ConnectData;
+
+@Listeners(com.osa.utilities.MyTestListener.class)
+public class SmokeTest extends Base{
+	public WebDriver dr;
+	HomePage hp ;
+	InterviewQuestions intvq;
+	StudentPage stdp;
+	private static Logger log= ConnectData.getLog(SmokeTest.class);
+	@Test
+	public void osaTest() throws Exception {
+
+		dr = Browser.openBrowser("chrome");
+		dr.get("https://osaconsultingtech.com");
+		log.info("OSA consutence tech open successfully");
+		
+		hp = new HomePage(dr);
+		hp.veriHomePage("OSA Consulting Tech Corp || Best Available Resources For Software Industry");
+		Thread.sleep(5000);
+		hp.clickonforumbtn();//("", "");// here is variable StudentPage, thus
+		hp.enterUserName("shohelhabib1989@gmail.com");
+		hp.enterPassword(Apps.PASSWORD);
+		Thread.sleep(5000);
+		hp.clickOnLoginBtn();
+		Thread.sleep(5000);
+	
+		
+		
+	
+		intvq=new InterviewQuestions(dr);
+		intvq.clickOnSTUDENTPAGE();
+		Thread.sleep(5000);
+		
+		stdp=new StudentPage(dr);
+		
+		Thread.sleep(5000);
+		
+		dr.navigate().back();
+		Thread.sleep(5000);
+		stdp.verifyStudentPage("Student Page");
+		Thread.sleep(5000);
+		stdp.logout();
+}
+}
