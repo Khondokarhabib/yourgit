@@ -1,0 +1,97 @@
+==================================GIT COMMAND & MORE=============================================================
+
+
+
+git status: lists all files ready to be committed, which have been added to staging, and files not currently being tracked by Git. 
+		Use this command to view the state of your working directory and staging area.
+
+git add <filename> : adds a new file to staging. This file is now ready to be committed. Remember, you have taken the snapshot but not saved it yet. 
+			It’s in the queue waiting to be added (or committed) to your local repository.
+
+git add --a :adds all files in the current directory and all sub directories to your local working directory.
+							[git add <filename>
+							git add *]
+
+git commit -am "massage" :commits new and updated files - moving them from the staging queue to your local repository. Make sure the note you add is relevant - that is, it summarizes the changes or updates you’ve made.
+			#Commit changes to head (but not yet to the remote repository): [git commit -m "massage"]
+			#Commit any files you've added with git add, and also commit any files you've 
+			changed since then:[git commit -a]
+
+git pull origin master :literally pulls the changes made from a remote repository to your local repository. 
+			Perhaps you are collaborating on a project and need to pull changes down made by your 
+			collaborators or maybe you’re just working solo and updating a local repository on different computer.
+
+git push origin master :
+	gathers all the committed files from local repository and uploads them to a remote repository. (Keep in mind that not all files are included in the upload) 
+	only new files and files that contain changes. this command syncs your local repository and external repository so they are exactly the same.
+	Before push, you must add a remote repository to share your local repository with, 
+	example:
+	$ git remote add origin git@github.com:mjhea0/git-commands.git
+	$ git push origin master
+
+
+######
+git clone <url> :clones (or copies) a git repository to your local machine. When you clone, you do not need to 
+		initialize a new repository because cloning copies all files, including the actual repository.
+
+Git init :initializes a new empty repository on our local machine.
+
+
+git remote -v: (Connect to the remote repo):# If you haven't connected your local repository to a remote server, 
+				add the server to be able to push to it:[git remote add origin <server>]
+				#List all currently configured remote repositories:[git remote -v]
+
+
+
+git branch: 
+	#Create a new branch and switch to it:[git checkout -b <branchname>]
+	#Switch from one branch to another:[git checkout <branchname>]
+	#List all the branches in your repo, and also tell you what branch you're currently in:[git branch]
+	#Delete the feature branch:[git branch -d <branchname>]
+	#Push the branch to your remote repository, so others can use it:[git push origin <branchname>]
+	#Push all branches to your remote repository:[git push --all origin]
+	#Delete a branch on your remote repository:[git push origin :<branchname>]
+
+
+git marze branch:(Update from the remote repo)
+		#Fetch and merge changes on the remote server to your working directory:
+				[git pull]
+		#To merge a different branch into your active branch:[git merge <branchname>]
+		#View all the merge conflicts:View the conflicts against the base file:
+					Preview changes, before merging:[git diff
+					git diff --base <filename>
+					git diff <sourcebranch> <targetbranch>]
+
+		#After you have manually resolved any conflicts, you mark the changed file:
+						[git add <filename>]
+
+#########
+git revert:hard <commit number> is used for reverting back to a particular commit. Check the logs to find the commit number 
+				you want to revert back to. If you ever submit code that breaks other code (which will happen), 
+				use this command to discard that commit and roll back the entire repository to the commit you specify. 
+				Continuing with the snapshot analogy, perhaps you took and then saved three bad pictures of yourself. 
+				Well, you can use this command to discard those pictures.
+
+
+git reset:(Update local changes):
+			#If you mess up, you can replace the changes in your working tree with the last content in head:
+			Changes already added to the index, as well as new files, will be kept.[git checkout -- <filename>]
+
+			#Instead, to drop all your local changes and commits, fetch the latest history from the server 
+			and point your local master branch at it, do this:
+					[git fetch origin
+
+					git reset --hard origin/master]
+
+git log : is used to view the history of your repository.to watch the workingflow
+
+
+
+
+[use for new stater:
+git config user.email :Check to see which email address is associated to Git:
+
+#git config --global user.email "":You can update the email if necessary:]
+
+
+[touch fileName = connect with eclips & possible to work their/ git rm fileName =remove file from /git ls = list of file/ clear= clear cmd/ exit = exit from cmd/ rm rf delet parmanently]
