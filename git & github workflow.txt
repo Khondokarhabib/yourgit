@@ -1,0 +1,36 @@
+
+===============Workflow of git command===============
+
+
+Start with exsiting project:
+creat a github repo then......
+$ git clone https://github.com/Khondokarhabib/newRepo.git (its will shown the remote newRepo on desktop)
+git cd newRepo  (its will take you from desktop to newRepo)
+
+git add . (staging/indexing)
+git commit -m "adding" (git repo)
+git push origin master (pushing to github)
+
+============
+start from your desktop:
+
+creat one file then ....
+
+git init
+git add .
+git commit -m "adding file"(git repo)
+
+creat a remote repo in your github & copy your path, then ..... 
+git remote add origin https://github.com/Khondokarhabib/sundayRepo.git
+
+it will push all git repo to github repo
+
+
+=============
+ Branch:
+
+git branch (check which branch we are now)
+
+git branch release (moving to release branch)
+git checkout release (now we are in release branch)
+git status
