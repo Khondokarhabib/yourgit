@@ -1,0 +1,83 @@
+Directory=Folder (dir)
+if any folder started with dot(.) then the folder is call hidden folder.
+
+
+if we want to move forward, we need to use cd command----->cd(change directory)/child name.
+if we want to move backward ---->cd..
+ls help---> get all command
+*ls----> this command indicate current directorys all file. show all file on screen.
+*ls -a----->to show all file including hidden file-----> 
+*pwd--->present working directory. it show the last position of the path.
+*mkdir---->creat new folder. exp:mkdir unix
+		to creat a directory under unix directory----->
+		*mkdir first
+		if we want to make directory under first directory then steps--->
+		*cd first(its will reach you on first directory then)
+		*mkdir one two three four five(another five folder created under first folder.)
+
+rmdir folder name------->to remove folder
+rmdir*------> remove all folder
+cd.. -------> take you one step up ,towords parents.
+cd----> towords child, by the name.
+cd ~ ---->it will take you to root directory.(at the biginnig)
+if you want to go in the middle of the path directory then tric is---->cd~/desktop/unix
+
+touch file.java----> 'touch' creat a empty file on exsisting folder.
+if we want to creat a file inside any exsisting folders folder file then just---> touch folder name/fileName.extention
+	unix(folder)-->first(fl)---->file then= touch first/newfile.java
+
+write something in file ----->
+
+vi---->writting editor in CMD. after vi ,file name.extention command , press "i". it will make 
+	visibal INSERT BUTTON.
+	exp:vi First.java
+
+after finish writting to save and out from vi editor steps--->
+press-->esc--
+then ---press shift colon(:)wq-----> this is how you scape & save file from vi.
+
+cp--->(copy): cp First.java five( copy First.java  to Five file)
+rm--->(remove):rm First.java.
+
+[mv---->(move/cut): mv First.java New(new is new file.)it is move towords child)
+	move towords parents one steps----> mv First.java ../
+
+rename---->mv First.java(oldName) second.java(newName)
+		back to previous name ---->mv second.java First.java
+
+cut peast------> cut from First.java, paste to new, rename second.java
+		mv Scond.java First.java]
+
+===========
+To read a file:
+cat---->(command)
+
+*cat > First.java [enter]
+	something[for write]
+*press crl c [save & exit]
+*cat first.java[for read]
+
+cat > Second.java[creat]
+this is from second.java
+press crl c
+cat Second.java[read]
+
+if you want read all file on same folder
+cat *.java
+
+read by line number:
+cat -n *.java
+
+two file marze in one file:--->
+ creat a new file: touch third.java 
+then---> cat -n*.java---->
+cat Second.java> Third.java[copying second to third file , 
+its will remove all third file content but only stay the second file content]
+
+if you want to keep third file content also
+cat Second.java>>third.java[it will append third file also]
+
+========
+empty directory can possible delet by -->rmdir third.java
+but if their any content their ,is not possible to deletion then
+---->rm -rf third.java [its will delet fourcefully]
